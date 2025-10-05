@@ -1,7 +1,7 @@
 Feature: Outline Wiki
 
-  @wikipedia_outline
-  Scenario Outline:
+  @wikipedia_outline@one
+  Scenario Outline: Wiki outline
     Given user is on search page on Wikipedia
     When user searching the "<search item>"
     Then user should be able to see "<results>" as "<title>" on wiki page
