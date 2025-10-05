@@ -1,0 +1,19 @@
+Scenario 1: Searching for information 
+Given I am on the Google search homepage
+When I type in "COVID-19 updates"
+Then I should see a list of relevant search results
+
+Scenario 2: Using Google Maps 
+Given I am on the Google Maps homepage
+When I search for "nearest pharmacy"
+Then I should see a list of nearby pharmacies and their locations on the map
+
+Scenario 3: Using Google Translate 
+Given I am on the Google Translate homepage
+When I enter the word "hello" in English
+Then I should see the translation in my chosen language, such as Spanish or French
+
+Scenario 4: Using Google Images 
+Given I am on the Google Images homepage
+When I search for "cute puppies"
+Then I should see a grid of adorable puppy pictures to browse through.
