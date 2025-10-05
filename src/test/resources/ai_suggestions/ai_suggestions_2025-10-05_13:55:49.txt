@@ -1,0 +1,29 @@
+Scenario 1: 
+Feature: Search functionality  
+Given the user is on the Google homepage  
+When the user enters a search query "lunch recipes"  
+Then the user should see a list of relevant search results  
+
+Scenario 2: 
+Feature: Autocomplete  
+Given the user is on the Google homepage  
+When the user starts typing a search query "best vacation spots"  
+Then the user should see a dropdown list of autocomplete suggestions  
+
+Scenario 3: 
+Feature: Image search  
+Given the user is on the Google homepage  
+When the user clicks on the "Images" tab  
+Then the user should be directed to a page displaying image search results  
+
+Scenario 4: 
+Feature: Voice search  
+Given the user is on the Google homepage  
+When the user clicks on the microphone icon  
+Then the user should be able to speak a search query and see relevant search results  
+
+Scenario 5: 
+Feature: Google Maps integration  
+Given the user is on the Google homepage  
+When the user searches for a specific location  
+Then the user should see a map displaying the location and relevant information

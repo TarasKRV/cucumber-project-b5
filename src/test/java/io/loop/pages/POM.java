@@ -2,18 +2,21 @@ package io.loop.pages;
 
 public class POM {
 
-    private DocuportLoginPage docuportLoginPage;
-    private  GoogleSearchPage googleSearchPage;
-    private  HomePage  homePage;
-    private  ProductPage productPage;
+    private GoogleSearchPage googleSearchPage;
+    private HomePage homePage;
+    private ProductPage productPage;
+    private ReceivedDocsPage receivedDocsPage;
+    private LeftNavigatePage leftNavigatePage;
+    private MyUploadsPage myUploadsPage;
+    private SmartBearPage smartBearPage;
+    private LoginPage loginPage;
 
 
-
-    public DocuportLoginPage getDocuportLoginPage() {
-        if (docuportLoginPage == null) {
-            docuportLoginPage = new DocuportLoginPage();
+    public LoginPage getLoginPage() {
+        if (loginPage == null) {
+            loginPage = new LoginPage();
         }
-        return docuportLoginPage;
+        return loginPage;
     }
 
     public GoogleSearchPage getGoogleSearchPage() {
@@ -23,6 +26,13 @@ public class POM {
         return googleSearchPage;
     }
 
+    public HomePage getHomePage() {
+        if (homePage == null) {
+            homePage = new HomePage();
+        }
+        return homePage;
+    }
+
     public ProductPage getProductPage() {
         if (productPage == null) {
             productPage = new ProductPage();
@@ -30,10 +40,33 @@ public class POM {
         return productPage;
     }
 
-    public HomePage getHomePage() {
-        if (homePage == null) {
-            homePage = new HomePage();
+    public ReceivedDocsPage getReceivedDocsPage() {
+        if (receivedDocsPage == null) {
+            receivedDocsPage = new ReceivedDocsPage();
         }
-        return homePage;
+        return receivedDocsPage;
     }
-}
+
+    public LeftNavigatePage getLeftNavigatePage() {
+        if (leftNavigatePage == null) {
+            leftNavigatePage = new LeftNavigatePage();
+        }
+        return leftNavigatePage;
+    }
+
+    public MyUploadsPage getMyUploadsPage() {
+        if (myUploadsPage == null) {
+            myUploadsPage = new MyUploadsPage();
+        }
+        return myUploadsPage;
+
+    }
+        public SmartBearPage getSmartBearPage () {
+            if (smartBearPage == null) {
+                smartBearPage = new SmartBearPage();
+            }
+            return smartBearPage;
+        }
+
+    }
+

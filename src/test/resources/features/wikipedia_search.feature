@@ -10,15 +10,15 @@ Feature: Wikipedia Search Functionality
    And user searching the following item
    And user click on search button
 
-  @wiki_page
+  @wiki_page@smoke
   Scenario: Searching multiple items about Steve Jobs
        Then user should be able to see Steve Jobs is in the wiki title
 
-  @wiki_page
+  @wiki_page@smoke
   Scenario: Searching multiple items about Steve Jobs
       Then user should be able to see Steve Jobs is in the main header
 
-  @wiki_page
+  @wiki_page@smoke
   Scenario: Searching multiple items about Steve Jobs
       Then user should be able to see Steve Jobs is in the image header
 

@@ -7,6 +7,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Driver {
 
@@ -23,7 +25,9 @@ public class Driver {
     We make it static because we want it to run before everything else, and we will use it in a static method
      */
 
-    private static WebDriver driver;
+    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
+
+    //private static WebDriver driver;
 
     /*
     Creating a reusable method that will return the same driver instance every time when we call it
@@ -34,21 +38,37 @@ public class Driver {
      * @return
      */
     public static WebDriver getDriver() {
-        if (driver == null) {
+        if (driverPool.get() == null) {
             String browserType = ConfigurationReader.getProperties("browser");
             ChromeOptions options = new ChromeOptions();
+
+            Map<String, Object> prefs = new HashMap();
+            prefs.put("credentials_enable_service", false);
+            prefs.put("profile.password_manager_enabled", false);
+            prefs.put("profile.password_manager_leak_detection", false);
+            prefs.put("autofill.profile_enabled", false);
+            prefs.put("autofill.credit_card_enabled", false);
+
+            options.setExperimentalOption("prefs", prefs);
+            options.addArguments("--disable-features=PasswordLeakDetection,PasswordManagerOnboarding");
+            options.addArguments("--disable-features=HttpsFirstMode,HttpsFirstModeV2");
+
             switch (browserType.toLowerCase()) {
                 case "chrome" -> {
                     options.addArguments("--disable-blink-features=AutomationControlled");
-                    driver = new ChromeDriver(options);
+                    driverPool.set(new ChromeDriver(options));
                 }
-                case "firefox" -> driver = new FirefoxDriver();
-                case "safari" -> driver = new SafariDriver();
+                case "firefox" -> driverPool.set(new FirefoxDriver());
+                case "safari" -> driverPool.set(new SafariDriver());
+                case "headless" -> {options.addArguments("--disable-blink-features=AutomationControlled");
+                    options.addArguments("--headless");
+                    driverPool.set(new ChromeDriver(options));
+                }
             }
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driverPool.get().manage().window().maximize();
+            driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
-        return driver;
+        return driverPool.get();
     }
 
     /**
@@ -56,9 +76,9 @@ public class Driver {
      * @author nsh
      */
     public static void closeDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null; // we assign it back to null so that next time we call getDriver(), a new instance will be created
+        if (driverPool.get() != null) {
+            driverPool.get().quit();
+            driverPool.remove(); // we assign it back to null so that next time we call getDriver(), a new instance will be created
         }
     }
 }
