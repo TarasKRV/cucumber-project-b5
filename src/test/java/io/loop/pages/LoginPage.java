@@ -68,6 +68,7 @@ public class LoginPage {
 //        if(BrowserUtils.waitForVisibility(loginButton, 10).isDisplayed()){
 //            loginButton.click();
 //        }
+      //  System.out.println();
     }
 
 }
