@@ -1,7 +1,1 @@
-14.09.2025 13:43:42 INFO  ProductStepDef:86 - Expected price 360 -  Actual price 360
-14.09.2025 13:43:42 INFO  ProductStepDef:86 - Expected price 820 -  Actual price 820
-14.09.2025 13:43:42 INFO  ProductStepDef:86 - Expected price 650 -  Actual price 650
-14.09.2025 13:43:43 INFO  ProductStepDef:86 - Expected price 790 -  Actual price 790
-14.09.2025 13:43:43 INFO  ProductStepDef:86 - Expected price 700 -  Actual price 700
-14.09.2025 13:43:43 INFO  ProductStepDef:86 - Expected price 400 -  Actual price 400
-14.09.2025 13:43:43 INFO  ProductStepDef:86 - Expected price 230 -  Actual price 230
+04.10.2025 23:20:52 INFO  SampleDocuportStepDefs:33 - tax document - was successufully sent to - Document name

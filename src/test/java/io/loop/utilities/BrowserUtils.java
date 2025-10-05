@@ -116,6 +116,21 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeaout));
             return wait.until(ExpectedConditions.visibilityOf(element));
     }
+
+    public static void uploadFileUsingAppleScript(String filePath) throws Exception {
+        String script = "tell application \"System Events\"\n"
+                + "delay 1\n"
+                + "keystroke \"G\" using {command down, shift down}\n"
+                + "delay 1\n"
+                + "keystroke \"" + filePath + "\"\n"
+                + "keystroke return\n"
+                + "delay 1\n"
+                + "keystroke return\n"
+                + "end tell";
+
+        String[] command = { "osascript", "-e", script };
+        Runtime.getRuntime().exec(command);
+    }
 }
 
 

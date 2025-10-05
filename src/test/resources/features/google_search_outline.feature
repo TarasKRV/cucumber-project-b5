@@ -1,7 +1,7 @@
 Feature: Scenario Outline Practice
 
   @google_search_outline
-  Scenario Outline:
+  Scenario Outline: Countries
     Given user is on Google search page
     When user search for "<country>"
     Then user should be see "<capital>" in the results as capital
